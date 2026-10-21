@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getBalita, deleteBalita, createBalitaBulk } from '../services/api';
+import { getBalita, deleteBalita, createBalitaBulk, API_BASE_URL } from '../services/api';
 import { Plus, Trash2, Search, Pencil, FileSpreadsheet, Upload, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Activity } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import { useToast } from '../components/Toast';
@@ -47,7 +47,7 @@ const BalitaList = () => {
 
 
   const handleExport = () => {
-    const url = `http://localhost:3000/api/export/balita?search=${encodeURIComponent(search)}`;
+    const url = `${API_BASE_URL}/export/balita?search=${encodeURIComponent(search)}`;
     window.location.href = url;
   };
 

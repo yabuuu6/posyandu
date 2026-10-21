@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getPengukuran, deletePengukuran } from '../services/api';
+import { getPengukuran, deletePengukuran, API_BASE_URL } from '../services/api';
 import { Plus, FileSpreadsheet, Search, Pencil, Trash2, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { useToast } from '../components/Toast';
 
@@ -121,7 +121,7 @@ const PengukuranList = () => {
   };
 
   const handleExport = () => {
-    const url = `http://localhost:3000/api/export/pengukuran?search=${encodeURIComponent(search)}&latest=true`;
+    const url = `${API_BASE_URL}/export/pengukuran?search=${encodeURIComponent(search)}&latest=true`;
     window.location.href = url;
   };
 
