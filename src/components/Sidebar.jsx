@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Users, Activity, Sun, Moon, LogOut, X } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 import './Sidebar.css';
@@ -7,6 +7,7 @@ import { useToast } from './Toast';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const toast = useToast();
+  const navigate = useNavigate();
   const [isDark, setIsDark] = useState(() => {
     // Ambil preferensi dari localStorage atau sistem
     const saved = localStorage.getItem('theme');
@@ -43,7 +44,8 @@ const Sidebar = ({ isOpen, onClose }) => {
     toast.confirm('Yakin ingin keluar dari akun ini?', () => {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.reload();
+      window.dispatchEvent(new Event('auth:logout'));
+      navigate('/login', { replace: true });
     }, null, 'Ya, Keluar', 'danger');
   };
 
