@@ -133,3 +133,30 @@
   font-weight: 500;
   letter-spacing: 0.03em;
 }
+
+/* Mobile Close Button */
+.sidebar-close-btn {
+  display: none;
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+  background: var(--surface);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .sidebar-close-btn {
+    display: inline-flex;
+  }
+}
+

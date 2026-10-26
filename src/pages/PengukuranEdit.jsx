@@ -196,7 +196,7 @@ const PengukuranEdit = () => {
             )}
           </div>
 
-          <div className="grid-2" style={{ gap: '1rem', gridTemplateColumns: '1fr 1fr', marginBottom: '1rem' }}>
+          <div className="grid-2 form-grid-2-responsive" style={{ gap: '1rem', marginBottom: '1rem' }}>
             <div className="input-group" style={{ marginBottom: 0 }}>
               <label>Berat Badan (kg)</label>
               <input 
@@ -250,7 +250,7 @@ const PengukuranEdit = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+          <div className="form-actions-responsive" style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
             <Link to="/pengukuran" className="btn btn-secondary" style={{ flex: 1 }}>
               Batal
             </Link>

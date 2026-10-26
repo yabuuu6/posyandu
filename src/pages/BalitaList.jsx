@@ -197,7 +197,7 @@ const BalitaList = () => {
           <h1 className="page-title">Data Balita</h1>
           <p className="page-subtitle">Kelola data peserta Posyandu</p>
         </div>
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }} className="responsive-header-actions">
           {!isGuest && (
             <>
               <input 
@@ -230,13 +230,13 @@ const BalitaList = () => {
       </div>
 
       <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="responsive-toolbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
           <h3 style={{ margin: 0 }}>Daftar Balita</h3>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--surface-hover)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+          <div className="responsive-toolbar-right" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div className="responsive-filter-chips" style={{ display: 'flex', gap: '0.35rem', background: 'var(--surface-hover)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
               <button 
                 type="button"
-                className={`btn ${genderFilter === 'all' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${genderFilter === 'all' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -253,7 +253,7 @@ const BalitaList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${genderFilter === 'L' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${genderFilter === 'L' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -270,7 +270,7 @@ const BalitaList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${genderFilter === 'P' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${genderFilter === 'P' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -286,17 +286,22 @@ const BalitaList = () => {
                 Perempuan
               </button>
             </div>
-            <div className="input-group" style={{ marginBottom: 0, flexDirection: 'row', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '0 0.5rem' }}>
+            <div className="input-group responsive-search" style={{ marginBottom: 0, flexDirection: 'row', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '0 0.5rem' }}>
               <Search size={16} color="var(--text-muted)" />
               <input 
                 type="text" 
-                placeholder="Cari nama..." 
+                placeholder="Cari nama balita..." 
                 value={search} 
                 onChange={(e) => setSearch(e.target.value)}
-                style={{ border: 'none', padding: '0.5rem', background: 'transparent', outline: 'none', color: 'var(--text-main)' }}
+                style={{ border: 'none', padding: '0.5rem', background: 'transparent', outline: 'none', color: 'var(--text-main)', width: '100%' }}
               />
             </div>
           </div>
+        </div>
+
+        <div className="mobile-table-hint">
+          <span>👉</span>
+          <span>Geser tabel ke kanan untuk melihat data orang tua & aksi</span>
         </div>
 
         <p style={{ margin: '0 0 1rem 0', fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>

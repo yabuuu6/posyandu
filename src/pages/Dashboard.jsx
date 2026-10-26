@@ -79,44 +79,44 @@ const Dashboard = () => {
 
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-        <div className="card glass" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ background: 'var(--primary-light)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
+      <div className="dashboard-stats-grid">
+        <div className="card glass dashboard-stat-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="dashboard-stat-icon" style={{ background: 'var(--primary-light)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
             <Users size={32} color="var(--primary)" />
           </div>
           <div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>TOTAL BALITA</p>
-            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stats.totalBalita ?? 0}</h2>
+            <p className="dashboard-stat-label" style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>TOTAL BALITA</p>
+            <h2 className="dashboard-stat-value" style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stats.totalBalita ?? 0}</h2>
           </div>
         </div>
 
-        <div className="card glass" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
+        <div className="card glass dashboard-stat-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="dashboard-stat-icon" style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
             <Activity size={32} color="var(--secondary)" />
           </div>
           <div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>PENGUKURAN BULAN INI</p>
-            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stats.totalPengukuranBulanIni ?? 0}</h2>
+            <p className="dashboard-stat-label" style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>PENGUKURAN BULAN INI</p>
+            <h2 className="dashboard-stat-value" style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stats.totalPengukuranBulanIni ?? 0}</h2>
           </div>
         </div>
 
-        <div className="card glass" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
+        <div className="card glass dashboard-stat-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="dashboard-stat-icon" style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
             <AlertTriangle size={32} color="var(--warning)" />
           </div>
           <div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>STUNTING (TB/U)</p>
-            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stuntingCount} <span style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--text-muted)' }}>anak</span></h2>
+            <p className="dashboard-stat-label" style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>STUNTING (TB/U)</p>
+            <h2 className="dashboard-stat-value" style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{stuntingCount} <span style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--text-muted)' }}>anak</span></h2>
           </div>
         </div>
 
-        <div className="card glass" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
+        <div className="card glass dashboard-stat-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="dashboard-stat-icon" style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: 'var(--radius-lg)' }}>
             <Heart size={32} color="var(--danger)" />
           </div>
           <div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>GIZI KURANG/BURUK (BB/U)</p>
-            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{underweightCount} <span style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--text-muted)' }}>anak</span></h2>
+            <p className="dashboard-stat-label" style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600 }}>GIZI KURANG/BURUK</p>
+            <h2 className="dashboard-stat-value" style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '0.2rem' }}>{underweightCount} <span style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--text-muted)' }}>anak</span></h2>
           </div>
         </div>
       </div>

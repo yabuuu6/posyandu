@@ -240,7 +240,7 @@ const BalitaCreate = () => {
             )}
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+          <div className="form-actions-responsive" style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
             <Link to="/balita" className="btn btn-secondary" style={{ flex: 1 }}>
               Batal
             </Link>

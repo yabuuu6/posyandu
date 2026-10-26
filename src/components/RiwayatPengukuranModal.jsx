@@ -134,17 +134,17 @@ const RiwayatPengukuranModal = ({ balita, onClose }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.25rem',
+        padding: '0.75rem 0.5rem',
         animation: 'fade-in 0.2s ease-out forwards',
       }}
       onClick={onClose}
     >
       <div
-        className="card"
+        className="card modal-dialog-responsive"
         style={{
           width: '100%',
           maxWidth: '900px',
-          maxHeight: '90vh',
+          maxHeight: '92vh',
           display: 'flex',
           flexDirection: 'column',
           padding: 0,
@@ -157,6 +157,7 @@ const RiwayatPengukuranModal = ({ balita, onClose }) => {
       >
         {/* Modal Header */}
         <div
+          className="modal-header-responsive"
           style={{
             padding: '1.25rem 1.75rem',
             borderBottom: '1px solid var(--border)',
@@ -227,6 +228,7 @@ const RiwayatPengukuranModal = ({ balita, onClose }) => {
 
         {/* Balita Summary Strip */}
         <div
+          className="modal-summary-responsive"
           style={{
             padding: '1rem 1.75rem',
             background: 'var(--surface-hover)',
@@ -348,6 +350,11 @@ const RiwayatPengukuranModal = ({ balita, onClose }) => {
                 <h4 style={{ margin: 0, fontSize: '1rem', color: 'var(--text-main)' }}>
                   Daftar Riwayat Pengukuran ({pengukuranList.length} Catatan)
                 </h4>
+              </div>
+
+              <div className="mobile-table-hint">
+                <span>👉</span>
+                <span>Geser tabel ke samping untuk melihat indikator antropometri & aksi</span>
               </div>
 
               <div className="table-container" style={{ maxHeight: '350px', overflowY: 'auto' }}>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Activity, Sun, Moon, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Activity, Sun, Moon, LogOut, X } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 import './Sidebar.css';
 import { useToast } from './Toast';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const toast = useToast();
   const [isDark, setIsDark] = useState(() => {
     // Ambil preferensi dari localStorage atau sistem
@@ -39,6 +39,7 @@ const Sidebar = () => {
   }, []);
 
   const handleLogout = () => {
+    if (onClose) onClose();
     toast.confirm('Yakin ingin keluar dari akun ini?', () => {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
@@ -46,36 +47,64 @@ const Sidebar = () => {
     }, null, 'Ya, Keluar', 'danger');
   };
 
+  const handleNavClick = () => {
+    if (onClose) onClose();
+  };
+
   return (
-    <div className="sidebar glass" style={{ display: 'flex', flexDirection: 'column' }}>
+    <aside className={`sidebar glass ${isOpen ? 'open' : ''}`} style={{ display: 'flex', flexDirection: 'column' }}>
       {/* Logo & Brand */}
-      <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', paddingBottom: '1.75rem', marginBottom: '1rem', borderBottom: '1px solid var(--border)' }}>
-        <img src={logoImg} alt="TumbuhCeria Logo" className="sidebar-logo" />
-        <div className="brand-text">
-          <span className="brand-name">
-            Tumbuh<span className="brand-accent">Ceria</span>
-          </span>
-          <span className="brand-sub">Posyandu Digital</span>
+      <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '1.25rem', marginBottom: '1rem', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <img src={logoImg} alt="TumbuhCeria Logo" className="sidebar-logo" />
+          <div className="brand-text">
+            <span className="brand-name">
+              Tumbuh<span className="brand-accent">Ceria</span>
+            </span>
+            <span className="brand-sub">Posyandu Digital</span>
+          </div>
         </div>
+
+        {/* Mobile close button */}
+        <button
+          type="button"
+          className="sidebar-close-btn"
+          onClick={onClose}
+          aria-label="Tutup Menu"
+          title="Tutup Menu"
+        >
+          <X size={18} />
+        </button>
       </div>
 
       <div className="sidebar-menu">
-        <NavLink to="/" className={({isActive}) => isActive ? "menu-item active" : "menu-item"} end>
+        <NavLink 
+          to="/" 
+          className={({isActive}) => isActive ? "menu-item active" : "menu-item"} 
+          end
+          onClick={handleNavClick}
+        >
           <LayoutDashboard size={20} />
           <span>Dashboard</span>
         </NavLink>
 
-        <NavLink to="/balita" className={({isActive}) => isActive ? "menu-item active" : "menu-item"}>
+        <NavLink 
+          to="/balita" 
+          className={({isActive}) => isActive ? "menu-item active" : "menu-item"}
+          onClick={handleNavClick}
+        >
           <Users size={20} />
           <span>Data Balita</span>
         </NavLink>
 
-        <NavLink to="/pengukuran" className={({isActive}) => isActive ? "menu-item active" : "menu-item"}>
+        <NavLink 
+          to="/pengukuran" 
+          className={({isActive}) => isActive ? "menu-item active" : "menu-item"}
+          onClick={handleNavClick}
+        >
           <Activity size={20} />
           <span>Pengukuran (WHO)</span>
         </NavLink>
-
-
       </div>
 
       {/* User Profile Card */}
@@ -157,7 +186,7 @@ const Sidebar = () => {
         </button>
         <span className="version-badge">v1.0 · WHO Z-Score</span>
       </div>
-    </div>
+    </aside>
   );
 };
 

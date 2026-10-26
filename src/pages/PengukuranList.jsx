@@ -136,7 +136,7 @@ const PengukuranList = () => {
             Menampilkan data pengukuran terbaru dari setiap balita
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }} className="responsive-header-actions">
           <button onClick={handleExport} className="btn btn-secondary">
             <FileSpreadsheet size={18} /> Ekspor Excel
           </button>
@@ -150,15 +150,15 @@ const PengukuranList = () => {
 
       <div className="card">
         {/* Header toolbar: Status filter, and search */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="responsive-toolbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
           <h3 style={{ margin: 0, fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 600 }}>Daftar Pengukuran Terakhir</h3>
 
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="responsive-toolbar-right" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
             {/* Status Gizi Filter */}
-            <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--surface-hover)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+            <div className="responsive-filter-chips" style={{ display: 'flex', gap: '0.35rem', background: 'var(--surface-hover)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
               <button 
                 type="button"
-                className={`btn ${statusFilter === 'all' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${statusFilter === 'all' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -175,7 +175,7 @@ const PengukuranList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${statusFilter === 'Normal' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${statusFilter === 'Normal' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -192,7 +192,7 @@ const PengukuranList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${statusFilter === 'Gizi Kurang' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${statusFilter === 'Gizi Kurang' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -209,7 +209,7 @@ const PengukuranList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${statusFilter === 'Gizi Buruk' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${statusFilter === 'Gizi Buruk' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -226,7 +226,7 @@ const PengukuranList = () => {
               </button>
               <button 
                 type="button"
-                className={`btn ${statusFilter === 'Gizi Lebih' ? 'btn-primary' : ''}`}
+                className={`btn filter-chip-btn ${statusFilter === 'Gizi Lebih' ? 'btn-primary' : ''}`}
                 style={{ 
                   padding: '0.35rem 0.75rem', 
                   fontSize: '0.8rem', 
@@ -243,17 +243,22 @@ const PengukuranList = () => {
               </button>
             </div>
             {/* Search */}
-            <div className="input-group" style={{ marginBottom: 0, flexDirection: 'row', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '0 0.5rem' }}>
+            <div className="input-group responsive-search" style={{ marginBottom: 0, flexDirection: 'row', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '0 0.5rem' }}>
               <Search size={16} color="var(--text-muted)" />
               <input 
                 type="text" 
                 placeholder="Cari nama balita..." 
                 value={search} 
                 onChange={(e) => setSearch(e.target.value)}
-                style={{ border: 'none', padding: '0.5rem', background: 'transparent', outline: 'none', color: 'var(--text-main)' }}
+                style={{ border: 'none', padding: '0.5rem', background: 'transparent', outline: 'none', color: 'var(--text-main)', width: '100%' }}
               />
             </div>
           </div>
+        </div>
+
+        <div className="mobile-table-hint">
+          <span>👉</span>
+          <span>Geser tabel ke kanan untuk melihat status gizi lengkap & aksi</span>
         </div>
 
         <div className="table-container">

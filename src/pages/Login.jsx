@@ -109,7 +109,7 @@ const Login = ({ onLoginSuccess }) => {
         zIndex: 0
       }}></div>
 
-      <div className="card glass animate-fade-in" style={{
+      <div className="card glass animate-fade-in login-card" style={{
         width: '100%',
         maxWidth: '420px',
         padding: '2.5rem 2rem',
